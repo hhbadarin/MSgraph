@@ -1,3 +1,10 @@
+
+#Connect to MsGraph
+Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
+
+#List all licenses 
+Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
+
 #Specify the path of the CSV file
 $CSVFilePath = "$Home/Desktop/newusers.csv"
 
@@ -42,3 +49,4 @@ foreach ($User in $NewUsers) {
         Write-Host ("Failed to create the account for {0}. Error: {1}" -f $User.DisplayName, $_.Exception.Message) -ForegroundColor Red
     }
 }
+
