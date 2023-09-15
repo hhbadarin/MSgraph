@@ -39,7 +39,6 @@ foreach ($User in $NewUsers) {
     try {
         $null = New-MgUser @UserParams -ErrorAction Stop
         Write-Host ("Successfully created the account for {0}" -f $User.DisplayName) -ForegroundColor Green
-     
         Set-MgUserLicense -UserId $User.UserPrincipalName -AddLicenses @{SkuId = "94763226-9b3c-4e75-a931-5c89701abe66"} -RemoveLicenses @()
     }
     catch {
