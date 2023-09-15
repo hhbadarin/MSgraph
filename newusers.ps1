@@ -50,3 +50,4 @@ foreach ($User in $NewUsers) {
     }
 }
 
+#Note: SkuId For students: 314c4481-f395-4525-be8b-2ec4bb1e9d91
