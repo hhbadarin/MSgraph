@@ -1,6 +1,7 @@
 
 #Connect to MsGraph
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
+Connect-MgGraph -Scopes "Directory.AccessAsUser.All"
 
 #List all licenses 
 Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
