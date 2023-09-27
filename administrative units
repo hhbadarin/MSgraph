@@ -1,8 +1,9 @@
 #Connect to Graph with the scopes
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 
-#Export all roles
-Get-MgDirectoryRole | export-csv -NoTypeInformation $Home/Desktop/MgDirectoryRole.csv -Encoding UTF8
+#Export all administrativeUnit units.
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+Get-MgDirectoryAdministrativeUnit -All | Select-Object Description, DisplayName, Id | Export-Csv -Path "$Home/Desktop/AUlist.csv" -Encoding UTF8
 
 #Specify the path of the CSV file
 $CSVFilePath = "$Home/Desktop/AURoles.csv"
