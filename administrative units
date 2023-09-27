@@ -1,0 +1,20 @@
+#Connect to Graph with the scopes
+Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
+
+#Export all roles
+Get-MgDirectoryRole | export-csv -NoTypeInformation $Home/Desktop/MgDirectoryRole.csv -Encoding UTF8
+
+#Specify the path of the CSV file
+$CSVFilePath = "$Home/Desktop/AURoles.csv"
+#Import data from CSV file
+$values = Import-Csv -Path $CSVFilePath
+#Loop through each row containing user details in the CSV file
+ForEach ($value in $values) {
+	$params = @{
+		roleId = "3b0b85b2-90b2-49e7-8144-cc39e38065a6"
+		roleMemberInfo = @{
+				id = $value.adminid
+			}
+	}
+	New-MgDirectoryAdministrativeUnitScopedRoleMember -AdministrativeUnitId $value.auid	-BodyParameter $params
+}
