@@ -8,5 +8,5 @@ Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
   $Accounts = Import-Csv -Path $CSVFilePath
   #Loop through each row containing user details in the CSV file
   ForEach ($Account in $Accounts) {
-    Update-MgUser -UserId $Account.UserPrincipalName -JobTitle $Account.JobTitle -GivenName $Account.GivenName -Surname $Account.Surname -Department $Account.Department
+    Update-MgUser -UserId $Account.UserPrincipalName -JobTitle $Account.JobTitle -GivenName $Account.GivenName -Surname $Account.Surname -DisplayName $Account.DisplayName  -Department $Account.Department
     }
