@@ -1,8 +1,7 @@
-
 #Connect to Graph with the scopes
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 
-#Update-MgUser
+#Update
   #Specify the path of the CSV file
   $CSVFilePath = "$Home/Desktop/Updateusers.csv"
   #Import data from CSV file
