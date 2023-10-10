@@ -1,6 +1,7 @@
 
 #Connect to Graph with the scopes
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
+
 #Update-MgUser
   #Specify the path of the CSV file
   $CSVFilePath = "$Home/Desktop/Updateusers.csv"
@@ -10,4 +11,3 @@ Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
   ForEach ($Account in $Accounts) {
     Update-MgUser -UserId $Account.UserPrincipalName -JobTitle $Account.JobTitle -GivenName $Account.GivenName -Surname $Account.Surname -Department $Account.Department
     }
-  
