@@ -1,15 +1,7 @@
 
 #Connect to Graph with the scopes
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
-
-
-#Create password profile
-$PasswordProfile = @{
-  Password                             = $User.Password
-  ForceChangePasswordNextSignIn        = $false
-  ForceChangePasswordNextSignInWithMfa = $false
-}
-  #Update-MgUser
+#Update-MgUser
   #Specify the path of the CSV file
   $CSVFilePath = "$Home/Desktop/newusers.csv/Updateusers.csv"
   #Import data from CSV file
