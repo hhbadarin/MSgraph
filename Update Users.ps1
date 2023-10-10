@@ -3,7 +3,7 @@
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 #Update-MgUser
   #Specify the path of the CSV file
-  $CSVFilePath = "$Home/Desktop/newusers.csv/Updateusers.csv"
+  $CSVFilePath = "$Home/Desktop/Updateusers.csv"
   #Import data from CSV file
   $Accounts = Import-Csv -Path $CSVFilePath
   #Loop through each row containing user details in the CSV file
