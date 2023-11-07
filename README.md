@@ -3,4 +3,4 @@
 </h1>
 
 ## Hey! 👋
-I'm Haitham, a 33 years old web developer from Palestine.
+I'm Haitham, a 33 years old Microsoft 365 engineer from Palestine.
