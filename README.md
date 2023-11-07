@@ -5,12 +5,12 @@
 </em></p>
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/hhbadarin?label=Follow)](https://twitter.com/intent/follow?screen_name=hhbadarin)
-[![website](https://www.badarin.net/badge/Website-46a2f1.svg?&style=flat-square&logo=Google-Chrome&logoColor=white&link=https://www.badarin.net/)](https://www.badarin.net/)
 
 ```javascript
 const hhbadarin = {
     OtherNames: "Abu Mazen",
     code: ["Powershell", "Python"],
+    website: "https://www.badarin.net/",
     },
     currentFocus: "Microsoft Graph Powershell",
     BestQuote: "Don't Work Hard, Work Smart!"
