@@ -1,18 +1,28 @@
-<h2><img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> Haitham Badarin, Abu Mazen! <img src="https://media.giphy.com/media/12oufCB0MyZ1Go/giphy.gif" width="50"></h2>
-<img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
-<p><em>Microsoft 365 Admin @ <a href="http://hebron.edu.ps//"> Hebron Directorate Of Education
-</a><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> 
-</em></p>
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/martonlederer/martonlederer/master/name.svg" alt="Marton Lederer" />
+</h1>
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/hhbadarin?label=Follow)](https://twitter.com/intent/follow?screen_name=hhbadarin)
+## Hey! 👋
+I'm Marton, a 20 years old web developer from Hungary.
 
-```javascript
-const hhbadarin = {
-    OtherNames: "Abu Mazen",
-    code: ["Powershell", "Python"],
-    website: "https://www.badarin.net/",
-    },
-    currentFocus: "Microsoft Graph Powershell",
-    BestQuote: "Don't Work Hard, Work Smart!"
-};
-```
+- 🦔 Founder of [ArConnect](https://arconnect.io) Arweave Wallet
+
+- 👨‍💻 Working at [Community Labs](https://communitylabs.com) ([We raised $30M!](https://www.bloomberg.com/news/articles/2022-09-08/teenage-founder-raises-30-million-for-crypto-startup-community-labs?utm_medium=email&utm_source=newsletter&utm_term=220908&utm_campaign=author_22684653#xj4y7vzkg&leadSource=uverify%20wall))
+
+- 🧭 Founder at [@th8ta](https://github.com/th8ta) and [@useverto](https://github.com/useverto)
+
+- 👥 Core team member at [@nestdotland](https://github.com/nestdotland)
+
++ a lot more ;)
+
+## Skills
+- 👨‍💻 TypeScript, JavaScript, PHP, C#
+- ⚙️ React, Svelte, Vue
+- 👁️ SASS, CSS, Stylus
+- 💽 MySQL, SQL, Mongo
++ a lot more :D
+
+## Contact
+- [marton.lederer.hu](https://marton.lederer.hu)
+- [@martonlederer](https://twitter.com/martonlederer) on Twitter
+- [@martonlederer](./) on Discord
