@@ -5,11 +5,11 @@
 </em></p>
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/hhbadarin?label=Follow)](https://twitter.com/intent/follow?screen_name=hhbadarin)
-[![Linkedin: anmol](https://img.shields.io/badge/-anmol-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/hhbadarin/)](https://www.linkedin.com/in/hhbadarin/)
-[![website](https:/badarin.net/badge/Website-46a2f1.svg?&style=flat-square&logo=Google-Chrome&logoColor=white&link=https://badarin.net/)](https://badarin.net/)
+[![Linkedin: Connect](https://img.shields.io/badge/-anmol-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/hhbadarin/)](https://www.linkedin.com/in/hhbadarin/)
+[![website](https://www.badarin.net/badge/Website-46a2f1.svg?&style=flat-square&logo=Google-Chrome&logoColor=white&link=https://www.badarin.net/)](https://www.badarin.net/)
 
 ```javascript
-const anmol = {
+const hhbadarin = {
     OtherNames: "Abu Mazen",
     code: ["Powershell", "Python"],
     },
