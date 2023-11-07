@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.github.com/hhbadarin/MSgraph/blob/main/name.svg" alt="Marton Lederer" />
+  <img src="https://github.com/hhbadarin/MSgraph/blob/main/name.svg" alt="Haitham Badarin" />
 </h1>
 
 ## Hey! 👋
