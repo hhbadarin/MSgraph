@@ -8,5 +8,6 @@
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://instagram.com/hhbadarin/)
 [![Youtube Badge](https://img.shields.io/youtube/channel/subscribers/UCB7RG_c1VhfUTFq0_Vw1Pjg)](https://Youtube.com/hhbadarin/)
 
-Hi, I'm Haitham Badarin! Software engineer from Palestine. I love Powershell and Microsoft Graph; That's why i created this repository to help IT admins manage microsoft 365 using Microsoft graph powershell. 
+Hi, I'm Haitham Badarin! Software engineer from Hebron,Palestine. 
+I love Powershell and Microsoft Graph; i have created this repository to help IT admins manage their microsoft 365 tenants using Microsoft graph powershell. 
 You can always contact me at: https://www.badarin.net
