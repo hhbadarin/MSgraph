@@ -5,7 +5,7 @@
 ## Hey! 👋
 [![Twitter Badge](https://img.shields.io/badge/-Twitter-00acee?style=flat-square&logo=Twitter&logoColor=white)](https://twitter.com/hhbadarin)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white)](https://linkedin.com/in/hhbadarin)
-[![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://instagram.com/hhbadarin/)
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://instagram.com/badarin2050/)
 [![Youtube Badge](https://img.shields.io/youtube/channel/subscribers/UCB7RG_c1VhfUTFq0_Vw1Pjg)](https://Youtube.com/hhbadarin/)
 
 Hi everyone, I'm Haitham Badarin! Software engineer from Hebron, Palestine.<br> 
