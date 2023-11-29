@@ -14,7 +14,7 @@ ForEach ($group in $SynchedGroups) {
 
 
 #Export Classes with 0 members 
-$Groups = Get-MgGroup -All | Where-Object {$_.MailNickName -like '*Section_*'} | Select-Object id, DisplayName, MailNickname
+$Groups = Get-MgGroup -All | Where-Object {$_.MailNickName -like '*Section_*'} | Select-Object id, DisplayName, Mail
 $Report = [System.Collections.Generic.List[Object]]::new()
 ForEach ($Group in $Groups) {
     if ((Get-MgGroupMember -Groupid  $group.id).count -eq 0) {
