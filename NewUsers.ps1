@@ -6,21 +6,18 @@ Connect-MgGraph -Scopes "Directory.AccessAsUser.All"
 #List all licenses 
 Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
 
-#Specify the path of the CSV file
-$CSVFilePath = "$Home/Desktop/newusers.csv"
 
-#Create password profile
+#Create new users
+$i = 0
+$j=0
+$NewUsers = Import-Csv -Path "$Home/Desktop/newusers.csv"
+foreach ($User in $NewUsers) {
+    #Create password profile
 $PasswordProfile = @{
     Password                             = $User.Password
     ForceChangePasswordNextSignIn        = $false
     ForceChangePasswordNextSignInWithMfa = $false
 }
-
-#Import data from CSV file
-$NewUsers = Import-Csv -Path $CSVFilePath
-
-#Loop 
-foreach ($User in $NewUsers) {
     $UserParams = @{
         DisplayName       = $User.DisplayName
         MailNickName      = $User.MailNickName
@@ -38,11 +35,13 @@ foreach ($User in $NewUsers) {
         }
 
     try {
+        $j++
         $null = New-MgUser @UserParams -ErrorAction Stop
-        Write-Host ("Successfully created the account for {0}" -f $User.DisplayName) -ForegroundColor Green
+        Write-Host ("User {0} has been created ... ({1})" -f $User.UserPrincipalName, $i) -ForegroundColor Yellow
         Set-MgUserLicense -UserId $User.UserPrincipalName -AddLicenses @{SkuId = "94763226-9b3c-4e75-a931-5c89701abe66"} -RemoveLicenses @()
     }
     catch {
+        $i++
         Write-Host ("Failed to create the account for {0}. Error: {1}" -f $User.DisplayName, $_.Exception.Message) -ForegroundColor Red
     }
 }
