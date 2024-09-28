@@ -9,7 +9,6 @@ Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
 
 #Create new users
 $i = 0
-$j = 0
 $NewUsers = Import-Csv -Path "$Home/Desktop/newusers.csv"
 foreach ($User in $NewUsers) {
     #Create password profile
@@ -35,13 +34,12 @@ $PasswordProfile = @{
         }
 
     try {
-        $j++
+        $i++
         $null = New-MgUser @UserParams -ErrorAction Stop
-        Write-Host ("User {0} has been created ... ({1})" -f $User.UserPrincipalName, $i) -ForegroundColor Yellow
+        Write-Host ("User {0} has been created ... ({1}/{2})" -f $User.UserPrincipalName, $i ,$Users.Count) -ForegroundColor Yellow
         Set-MgUserLicense -UserId $User.UserPrincipalName -AddLicenses @{SkuId = "94763226-9b3c-4e75-a931-5c89701abe66"} -RemoveLicenses @()
     }
     catch {
-        $i++
         Write-Host ("Failed to create the account for {0}. Error: {1}" -f $User.DisplayName, $_.Exception.Message) -ForegroundColor Red
     }
 }
