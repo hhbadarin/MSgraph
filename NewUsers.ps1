@@ -9,7 +9,7 @@ Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
 
 #Create new users
 $i = 0
-$j=0
+$j = 0
 $NewUsers = Import-Csv -Path "$Home/Desktop/newusers.csv"
 foreach ($User in $NewUsers) {
     #Create password profile
