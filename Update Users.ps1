@@ -1,12 +1,17 @@
 #Connect to Graph with the scopes
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 
-#Update
-  #Specify the path of the CSV file
-  $CSVFilePath = "$Home/Desktop/Updateusers.csv"
-  #Import data from CSV file
-  $Accounts = Import-Csv -Path $CSVFilePath
-  #Loop through each row containing user details in the CSV file
-  ForEach ($Account in $Accounts) {
-    Update-MgUser -UserId $Account.UserPrincipalName -JobTitle $Account.JobTitle -GivenName $Account.GivenName -Surname $Account.Surname -DisplayName $Account.DisplayName  -Department $Account.Department
+#Update bulk users from a csv 
+$Users = Import-Csv -Path "$Home\Desktop\updateUsers.csv"
+$i = 0
+ForEach ($User in $Users) {
+    try {
+        $i++
+        Update-MgUser -UserId $User.UserPrincipalName -DisplayName $User.DisplayName 
+        Write-Host ("User {0} has been updated to {1}" -f $User.UserPrincipalName, $User.DisplayName) -ForegroundColor Yellow
     }
+    catch {
+        Write-Host "An exception occurred: $($_.Exception.Message)"
+        throw
+    } 
+}
