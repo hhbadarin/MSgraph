@@ -6,41 +6,59 @@ Connect-MgGraph -Scopes "Directory.AccessAsUser.All"
 #List all licenses 
 Get-MgSubscribedSku | Select-Object SkuPartNumber, SkuId
 
-
-#Create new users
+# Create new users from CSV
 $i = 0
 $NewUsers = Import-Csv -Path "$Home/Desktop/newusers.csv"
 foreach ($User in $NewUsers) {
-    #Create password profile
-$PasswordProfile = @{
-    Password                             = $User.Password
-    ForceChangePasswordNextSignIn        = $false
-    ForceChangePasswordNextSignInWithMfa = $false
-}
-    $UserParams = @{
-        DisplayName       = $User.DisplayName
-        MailNickName      = $User.MailNickName
-        UserPrincipalName = $User.UserPrincipalName
-        Department        = $User.Department
-        JobTitle          = $User.JobTitle
-        GivenName         =$User.First
-        Surname         =$User.Surname
-        PasswordProfile   = $PasswordProfile
-        AccountEnabled    = $true
-			  UsageLocation     ="PS"
-        PreferredLanguage  = "ar-SA"
-        Country = "Palestinian Authority"
-        City  = "Hebron"
-        }
+    $UserPrincipalName = $User.UserPrincipalName
+    $existingUser = Get-MgUser -UserId $UserPrincipalName -ErrorAction SilentlyContinue
+    if ($existingUser) {
+        Write-Host "User $UserPrincipalName already exists." -ForegroundColor Red
+        continue
+    }
+    $PasswordProfile = @{
+        password = $User.Password
+        forceChangePasswordNextSignIn = $false
+        forceChangePasswordNextSignInWithMfa = $false
+    }
 
+    # Build user object
+    $userObject = @{
+        accountEnabled    = $true
+        displayName       = $User.DisplayName
+        givenName         = $User.First
+        surname           = $User.Surname
+        jobTitle          = $User.JobTitle 
+        department        = $User.Department
+        country           = "Palestinian Authority"
+        mailNickname      = $User.MailNickName
+        userPrincipalName = $User.UserPrincipalName
+        preferredLanguage = "ar-SA"
+        usageLocation     = "PS"
+        passwordProfile   = $PasswordProfile
+        passwordPolicies  = "DisablePasswordExpiration"
+    }
+    $jsonBody = $userObject | ConvertTo-Json -Depth 5 -Compress
     try {
         $i++
-        $null = New-MgUser @UserParams -ErrorAction Stop
-        Write-Host ("User {0} has been created ... ({1}/{2})" -f $User.UserPrincipalName, $i ,$Users.Count) -ForegroundColor Yellow
-        Set-MgUserLicense -UserId $User.UserPrincipalName -AddLicenses @{SkuId = "94763226-9b3c-4e75-a931-5c89701abe66"} -RemoveLicenses @()
+        $user = Invoke-MgGraphRequest -Method POST -Uri "/v1.0/users" -Body $jsonBody -ContentType "application/json"
+        $licenseParams = @{
+            addLicenses = @(@{skuId = "314c4481-f395-4525-be8b-2ec4bb1e9d91"})
+            removeLicenses = @()
+        }
+        Invoke-MgGraphRequest -Method POST -Uri "/v1.0/users/$($user.id)/assignLicense" -Body ($licenseParams | ConvertTo-Json)
+        Write-Host ("User {0} has been created ... ({1}/{2})" -f $User.UserPrincipalName, $i ,$NewUsers.Count) -ForegroundColor Yellow
     }
     catch {
-        Write-Host ("Failed to create the account for {0}. Error: {1}" -f $User.DisplayName, $_.Exception.Message) -ForegroundColor Red
+        Write-Host ("Failed to create the account for {0}." -f $User.DisplayName) -ForegroundColor Red
+
+        if ($_.Exception.Response -and $_.Exception.Response.Content) {
+            $errorContent = $_.Exception.Response.Content.ReadAsStringAsync().Result
+            Write-Host "Graph API Error:" -ForegroundColor Red
+            Write-Host $errorContent -ForegroundColor Red
+        } else {
+            Write-Host ("Error: {0}" -f $_.Exception.Message) -ForegroundColor Red
+        }
     }
 }
 
